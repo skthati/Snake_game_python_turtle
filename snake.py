@@ -11,7 +11,7 @@ snake = []
 for i in range(3):
     snake.append("A" + str(i))
 
-sc.tracer(0)
+# sc.tracer(0)
 
 x = 0
 y = 0
@@ -23,7 +23,7 @@ for i in range(len(snake)):
     snake[i].goto(x, y)
     x -= 20
 
-for i in range(10):
+for i in range(2):
     sc.update()
     time.sleep(0.5)
     for i in range(len(snake)):
@@ -31,13 +31,30 @@ for i in range(10):
         sc.delay(100)
 
 for i in range(1):
-    sc.update()
-    time.sleep(0.5)
+    # sc.update()
+    # time.sleep(1)
     for i in range(len(snake)):
-        snake[i].left(90)
-        sc.delay(100)
+        if i == 0:
+            snake[i].left(90)
+            # snake[i].forward(20)
+        if i == 1:
+            snake[i-1].forward(20)
+            snake[i].forward(20)
+            snake[i].left(90)
+            snake[i+1].forward(20)
+            # snake[i].forward(20)
+        if i == 2:
+            snake[i-2].forward(20)
+            snake[i-1].forward(20)
+            snake[i].forward(20)
+            snake[i].left(90)
+            # snake[i].forward(20)
+        # for j in range(int(i)):
+        #     snake[i].forward(20)
+        #     snake[i].left(90)
+        # sc.delay(100)
 
-for i in range(10):
+for i in range(5):
     sc.update()
     time.sleep(0.5)
     for i in range(len(snake)):

@@ -79,5 +79,60 @@ Make a better snake. Using screen tracer, delay and time sleep.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 <hr>  
 
+<!-- Test1  -->
+## Not working and working snake turn <a name="snake_turn"></a>
+The whole code may not be a good idea but it works and got to know how it may behave
+
+1. Code
+    ```Python
+    for i in range(2):
+    sc.update()
+    time.sleep(0.5)
+    for i in range(len(snake)):
+        snake[i].forward(20)
+        sc.delay(100)
+
+    for i in range(1):
+        # sc.update()
+        # time.sleep(1)
+        for i in range(len(snake)):
+            if i == 0:
+                snake[i].left(90)
+                # snake[i].forward(20)
+            if i == 1:
+                snake[i-1].forward(20)
+                snake[i].forward(20)
+                snake[i].left(90)
+                snake[i+1].forward(20)
+                # snake[i].forward(20)
+            if i == 2:
+                snake[i-2].forward(20)
+                snake[i-1].forward(20)
+                snake[i].forward(20)
+                snake[i].left(90)
+                # snake[i].forward(20)
+            # for j in range(int(i)):
+            #     snake[i].forward(20)
+            #     snake[i].left(90)
+            # sc.delay(100)
+
+    for i in range(5):
+        sc.update()
+        time.sleep(0.5)
+        for i in range(len(snake)):
+            snake[i].forward(20)
+            sc.delay(100)
+    ```
+
+2. Output
+
+![Alt text](snake_right_turn_bad_code.gif)
+
+![Alt text](snake_turn_working.gif)
+
+[Full Code location](snake.py)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<hr>  
 
 
