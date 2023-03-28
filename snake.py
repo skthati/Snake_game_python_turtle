@@ -1,17 +1,14 @@
 from turtle import Turtle, Screen
 import time
 
-# t = Turtle()
+
 sc = Screen()
-# t.shape("square")
-# t.color("blue")
 sc.screensize(600, 600)
 
 snake = []
 for i in range(3):
     snake.append("A" + str(i))
 
-# sc.tracer(0)
 
 x = 0
 y = 0
@@ -31,77 +28,34 @@ def snake_move():
         snake[i].goto(x1, y1)
 
 
-# for i in range(2):
-#     sc.update()
-#     time.sleep(0.5)
-#     for i in range(len(snake)):
-#         snake[i].forward(20)
-#         sc.delay(100)
-game_start = True
-while game_start:
-    sc.update()
-    time.sleep(1)
-    snake_move()
-    snake[0].forward(20)
+def right_move():
+    snake[0].right(90)
 
 
-    sc.update()
-    time.sleep(0.5)
-    snake_move()
+def left_move():
     snake[0].left(90)
-    snake[0].forward(20)
 
+def down_move():
+    snake[0].right(90)
 
+def up_move():
+    snake[0].left(90)
 
-    
+start_game = True
+while start_game:
+    sc.listen()
 
+    sc.onkey(key="Up", fun=up_move)
+    sc.onkey(key="Right", fun=right_move)
+    sc.onkey(key="Left", fun=left_move)
+    sc.onkey(key="Down", fun=down_move)
+    cont_move = True
+    while cont_move:
+        sc.update()
+        time.sleep(0.3)
+        snake_move()
+        snake[0].forward(20)
 
-
- 
-
-
-
-
-        # if i == 0:
-        #     snake[i].left(90)
-        # else:
-        #     snake[i].forward(20)
-
-
-    # for i in range(len(snake) - 1, 0, -1):
-    #     snake[i].right(90)
-
-    # for i in range(1):
-        # sc.update()
-        # time.sleep(1)
-        # for i in range(len(snake)):
-        #     if i == 0:
-        #         snake[i].left(90)
-        #         # snake[i].forward(20)
-        #     if i == 1:
-        #         snake[i-1].forward(20)
-        #         snake[i].forward(20)
-        #         snake[i].left(90)
-        #         snake[i+1].forward(20)
-        #         # snake[i].forward(20)
-        #     if i == 2:
-        #         snake[i-2].forward(20)
-        #         snake[i-1].forward(20)
-        #         snake[i].forward(20)
-        #         snake[i].left(90)
-                # snake[i].forward(20)
-            # for j in range(int(i)):
-            #     snake[i].forward(20)
-            #     snake[i].left(90)
-            # sc.delay(100)
-
-    # for i in range(5):
-    #     sc.update()
-    #     time.sleep(0.5)
-    #     for i in range(len(snake)):
-    #         snake[i].forward(20)
-    #         sc.delay(100)
-        
 
 
 sc.exitonclick()

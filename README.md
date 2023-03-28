@@ -135,4 +135,28 @@ The whole code may not be a good idea but it works and got to know how it may be
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 <hr>  
 
+<!-- Test1  -->
+## Working Snake <a name="working_snake"></a>
+Working snake with arrow keys to switch directions.
 
+Used classes.
+
+1. Code
+    ```Python
+    sc.onkey(key="Up", fun=up_move)
+    sc.onkey(key="Right", fun=right_move)
+    sc.onkey(key="Left", fun=left_move)
+    sc.onkey(key="Down", fun=down_move)
+    ```
+
+2. Output
+
+    ![Alt text](snake_working.gif)
+
+
+[main.py file.](main.py)
+
+[snake1.py class file.](snake1.py)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<hr>  
