@@ -9,10 +9,12 @@ LEFT = 180
 RIGHT = 0
 
 
+
 class Snake():
     def __init__(self):
         self.body = []
         self.create_snake()
+        self.head = self.body[0]
     
     def create_snake(self):
         for position in STARTING_POSITIONS:
@@ -21,7 +23,7 @@ class Snake():
             new_body.penup()
             new_body.goto(position)
             self.body.append(new_body)
-            
+
     
     def move(self):
         for b in range(len(self.body) - 1, 0, -1):
@@ -29,20 +31,20 @@ class Snake():
             y = self.body[b-1].ycor()
             self.body[b].goto(x, y)
         
-        self.body[0].forward(MOVE_DISTANCE)
+        self.head.forward(MOVE_DISTANCE)
     
     def up(self):
-        if self.body[0].heading() != DOWN:
-            self.body[0].setheading(UP)
+        if self.head.heading() != DOWN:
+            self.head.setheading(UP)
     
     def down(self):
-        if self.body[0].heading()!= UP:
-            self.body[0].setheading(DOWN)
+        if self.head.heading()!= UP:
+            self.head.setheading(DOWN)
     
     def left(self):
-        if self.body[0].heading()!= RIGHT:
-            self.body[0].setheading(LEFT)
+        if self.head.heading()!= RIGHT:
+            self.head.setheading(LEFT)
     
     def right(self):
-        if self.body[0].heading()!= LEFT:
-            self.body[0].setheading(RIGHT)
+        if self.head.heading()!= LEFT:
+            self.head.setheading(RIGHT)
