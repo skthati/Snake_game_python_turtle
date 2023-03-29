@@ -18,13 +18,20 @@ class Snake():
     
     def create_snake(self):
         for position in STARTING_POSITIONS:
-            new_body = Turtle("square")
-            new_body.color("black")
-            new_body.penup()
-            new_body.goto(position)
-            self.body.append(new_body)
+            self.add_snake(position)       
 
     
+    def add_snake(self, position):
+        new_body = Turtle("square")
+        new_body.color("black")
+        new_body.penup()
+        new_body.goto(position)
+        self.body.append(new_body)
+    
+    def grow_snake(self):
+        self.add_snake(self.body[-1].position())
+
+
     def move(self):
         for b in range(len(self.body) - 1, 0, -1):
             x = self.body[b-1].xcor()
